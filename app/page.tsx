@@ -1,9 +1,13 @@
 export const dynamic = "force-dynamic";
 // app/page.tsx
+
 import RepairForm from "@/app/gestion/Components/RepairForm";
 import RepairList from "@/app/travaux/Components/RepairList";
-import SearchBar from "@/app/travaux/Components/SearchBar"; // Importe la barre de recherche
+import SearchBar from "@/app/travaux/Components/SearchBar";
 import { Suspense } from "react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
 
 
 export default async function Home({
@@ -11,6 +15,10 @@ export default async function Home({
 }: {
   searchParams?: Promise<{ query?: string }>;
 }) {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    redirect("/login");
+  }
   const params = searchParams ? await searchParams : {};
   const query = params.query || "";
 
@@ -20,16 +28,10 @@ export default async function Home({
         <h1 className="text-3xl font-extrabold text-slate-900 mb-8 text-center">
           Gestion Atelier 🛠️
         </h1>
-        
         <RepairForm />
-
         <div className="mt-12">
           <h2 className="text-xl font-bold text-slate-800 mb-4">Liste des travaux</h2>
-          
-          {/* Affiche la barre de recherche */}
           <SearchBar />
-
-          {/* On passe la query à la liste sans Suspense pour tester le rafraîchissement */}
           <RepairList query={query} />
         </div>
       </div>

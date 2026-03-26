@@ -19,7 +19,7 @@ export default function StatusButton({ id, active, labelActive, labelInactive, c
     <button
       onClick={() => startTransition(() => action(id, active))}
       disabled={isPending}
-      className={`px-3 py-1 rounded-full text-xs font-bold transition-opacity ${isPending ? "opacity-50" : "opacity-100"} ${
+      className={`px-3 py-1 rounded-full text-xs font-bold transition-opacity cursor-pointer ${isPending ? "opacity-50" : "opacity-100"} ${
         active ? colorActive : colorInactive
       }`}
     >

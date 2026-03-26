@@ -33,7 +33,7 @@ export default function LoginPage() {
       <form onSubmit={handleLogin} className="bg-white p-8 rounded-xl shadow-md border w-full max-w-sm flex flex-col gap-4">
         <input name="identifiant" placeholder="Identifiant" className="p-2 border rounded-md" required />
         <input name="password" type="password" placeholder="Mot de passe" className="p-2 border rounded-md" required />
-        <button type="submit" disabled={isPending} className="bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition-all">
+        <button type="submit" disabled={isPending} className="bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition-all cursor-pointer">
           {isPending ? "Connexion..." : "Se connecter"}
         </button>
         {error && <div className="text-red-500 text-sm text-center">{error}</div>}

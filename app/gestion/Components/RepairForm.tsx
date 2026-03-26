@@ -66,7 +66,7 @@ export default function RepairForm() {
         <button 
           type="submit" 
           disabled={isPending}
-          className={`w-full py-3 mt-4 text-white font-bold rounded-md transition-all ${isPending ? 'bg-slate-400' : 'bg-blue-600 hover:bg-blue-700'}`}
+          className={`w-full py-3 mt-4 text-white font-bold rounded-md transition-all cursor-pointer ${isPending ? 'bg-slate-400' : 'bg-blue-600 hover:bg-blue-700'}`}
         >
           {isPending ? "Enregistrement..." : "Enregistrer la fiche"}
         </button>

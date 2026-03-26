@@ -12,7 +12,7 @@ export default function AuthButton() {
   if (session) {
     return (
       <button
-        className="font-semibold text-slate-700 hover:text-blue-600 ml-auto"
+        className="font-semibold text-slate-700 hover:text-blue-600 ml-auto cursor-pointer"
         onClick={() => signOut({ callbackUrl: "/login" })}
       >
         Se déconnecter
@@ -21,7 +21,7 @@ export default function AuthButton() {
   }
 
   return (
-    <Link href="/login" className="font-semibold text-slate-700 hover:text-blue-600 ml-auto">
+    <Link href="/login" className="font-semibold text-slate-700 hover:text-blue-600 ml-auto cursor-pointer">
       Connexion
     </Link>
   );
